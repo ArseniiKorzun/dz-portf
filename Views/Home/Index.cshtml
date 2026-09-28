@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Головна";
+}
+<section class="hero">
+    <div class="hero-copy">
+        <h1>Привіт, я Арсеній!</h1>
+        <p>Вітаю на моїй персональній сторінці.</p>
+        <p>Я навчаюся та цікавлюся програмуванням. Зараз вивчаю C# і створення сайтів на ASP.NET Core MVC.</p>
+        <p>У вільний час люблю читати, гуляти та працювати над невеликими проєктами. На цьому сайті можна дізнатися про мої інтереси, захоплення та плани на майбутнє.</p>
+        <a asp-controller="Home" asp-action="About">Детальніше про мене</a>
+    </div>
+    <figure class="hero-art">
+        <img src="~/images/workspace.svg" alt="Робоче місце з ноутбуком, рослиною та чашкою" width="640" height="480" />
+        <figcaption>Мені подобається вивчати програмування.</figcaption>
+    </figure>
+</section>
+<section class="intro-section">
+    <h2>Що є на сайті</h2>
+    <ul>
+        <li><a asp-controller="Home" asp-action="About">Про мене</a> — навчання та інтереси.</li>
+        <li><a asp-controller="Home" asp-action="Hobbies">Мої хобі</a> — улюблені заняття у вільний час.</li>
+        <li><a asp-controller="Home" asp-action="Favorites">Улюблене</a> — фільми та книги.</li>
+        <li><a asp-controller="Home" asp-action="Plans">Мої плани</a> — цілі на найближчі роки.</li>
+    </ul>
+</section>

@@ -1,0 +1,53 @@
+﻿@{
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+    var pages = new[]
+    {
+        (Action: "Index", Title: "Головна"),
+        (Action: "About", Title: "Про мене"),
+        (Action: "Hobbies", Title: "Мої хобі"),
+        (Action: "Favorites", Title: "Улюблене"),
+        (Action: "Plans", Title: "Мої плани")
+    };
+}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Моя персональна сторінка: знайомство, навчання, захоплення та плани на майбутнє." />
+    <title>@ViewData["Title"] — Моя персональна сторінка</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Перейти до вмісту</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" asp-controller="Home" asp-action="Index" aria-label="Моя персональна сторінка — головна">
+                Моя персональна сторінка
+            </a>
+            <nav aria-label="Основна навігація">
+                <ul class="nav-list">
+                    @foreach (var item in pages)
+                    {
+                        var isActive = currentAction == item.Action;
+                        <li>
+                            <a asp-controller="Home" asp-action="@item.Action"
+                               class="@(isActive ? "active" : null)"
+                               aria-current="@(isActive ? "page" : null)">@item.Title</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content" class="container main-content" tabindex="-1">
+        @RenderBody()
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; @DateTime.Now.Year Арсеній</p>
+        </div>
+    </footer>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

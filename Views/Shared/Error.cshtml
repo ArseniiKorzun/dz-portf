@@ -1,0 +1,14 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Помилка";
+}
+<header class="page-heading">
+    <p class="eyebrow">Щось пішло не так</p>
+    <h1>Не вдалося відкрити сторінку</h1>
+    <p class="lead">Спробуйте ще раз або поверніться на головну сторінку.</p>
+</header>
+@if (Model.ShowRequestId)
+{
+    <p>Ідентифікатор запиту: <code>@Model.RequestId</code></p>
+}
+<a class="button" asp-controller="Home" asp-action="Index">На головну</a>
